@@ -1,0 +1,43 @@
+.filterbar {
+  height: 100px;
+  background-color: #f9f9f9;
+  padding: 30px;
+}
+
+.filterbar > .filterbar__input__wrapper {
+  padding-bottom: 25px;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.filterbar > .filterbar__input__wrapper input {
+  width: 80%;
+  background-color: transparent;
+  border: none;
+  margin-left: 15px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.filterbar > .filterbar__input__wrapper input:focus {
+  outline: none;
+}
+
+.filterbar > .filter_button {
+  width: 100%;
+  height: 40px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #2479ea;
+  border: 1px solid #2479ea;
+  border-radius: 20px;
+  background-color: transparent;
+  margin-top: 20px;
+}
+
+.filterbar > .filter_button:focus {
+  outline: none;
+}
+
+.filterbar > .filter_button:hover {
+  cursor: pointer;
+}

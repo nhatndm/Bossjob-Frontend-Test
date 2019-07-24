@@ -37,6 +37,17 @@ class Pagination extends Component {
     this.gotoPage(1);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { totalRecords = null, pageLimit = 12 } = nextProps;
+
+    this.pageLimit = pageLimit;
+    this.totalRecords = totalRecords;
+
+    this.pageNeighbours = 1;
+
+    this.totalPages = Math.ceil(this.totalRecords / this.pageLimit);
+  }
+
   gotoPage = page => {
     const currentPage = Math.max(0, Math.min(page, this.totalPages));
 
@@ -46,7 +57,9 @@ class Pagination extends Component {
   handleClick = (page, evt) => {
     const { onPageChanged } = this.props;
     evt.preventDefault();
-    onPageChanged({ currentPage: page });
+    if (this.totalPages !== 1) {
+      onPageChanged({ currentPage: page });
+    }
     this.gotoPage(page);
   };
 
@@ -114,10 +127,6 @@ class Pagination extends Component {
   };
 
   render() {
-    if (!this.totalRecords) return null;
-
-    if (this.totalPages === 1) return null;
-
     const { currentPage } = this.state;
     const pages = this.fetchPageNumbers();
 
