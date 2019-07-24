@@ -1,0 +1,2 @@
+export const SAVE_JOBS_SUCCESS = "SAVE_JOBS_SUCCESS";
+export const SAVE_JOBS_FALURE = "SAVE_JOBS_FALURE";
