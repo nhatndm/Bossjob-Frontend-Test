@@ -14,7 +14,8 @@ export function fetchJobs(query = "", page = 1) {
         type: SAVE_JOBS_SUCCESS,
         data: jobs.data.data.jobs,
         current_page: page,
-        total: jobs.data.data.total_num
+        total: jobs.data.data.total_num,
+        query: query
       });
     } catch (error) {
       dispatch({

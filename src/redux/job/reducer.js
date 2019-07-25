@@ -4,7 +4,8 @@ export const initialState = {
   total: 0,
   current_page: 0,
   data: [],
-  error: ""
+  error: "",
+  query: ""
 };
 
 export default (state = initialState, action) => {
@@ -14,7 +15,8 @@ export default (state = initialState, action) => {
         ...state,
         total: action.total,
         current_page: action.current_page,
-        data: action.data
+        data: action.data,
+        query: action.query
       };
     case SAVE_JOBS_FALURE:
       return {

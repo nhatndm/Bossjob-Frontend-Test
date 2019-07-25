@@ -25,9 +25,7 @@ export default class FilterBar extends Component {
         className="filterbar"
         onSubmit={event => {
           event.preventDefault();
-          if (query.trim() !== "") {
-            handlerFilterResult({ query: query });
-          }
+          handlerFilterResult({ query: query });
         }}
       >
         <div className="filterbar__input__wrapper">

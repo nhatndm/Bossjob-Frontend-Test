@@ -4,8 +4,8 @@ import "./App.css";
 import Header from "./shared/components/Header";
 import { connect } from "react-redux";
 import { fetchJobs } from "./redux/job/action";
-import Pagination from "./shared/components/pagination";
 import FilterBar from "./shared/components/filterbar";
+import Jobs from "./shared/components/Jobs";
 
 class App extends Component {
   constructor(props) {
@@ -15,10 +15,6 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchJobs();
-  }
-
-  onPageChanged({ currentPage }) {
-    console.log(currentPage);
   }
 
   handlerFilterResult({ query }) {
@@ -31,13 +27,7 @@ class App extends Component {
         <div className="App-Wrapper">
           <Header />
           <FilterBar handlerFilterResult={this.handlerFilterResult} />
-          {this.props.total !== 0 ? (
-            <Pagination
-              totalRecords={this.props.total}
-              pageLimit={12}
-              onPageChanged={this.onPageChanged}
-            />
-          ) : null}
+          <Jobs jobs={this.props.jobs} totalRecords={this.props.total} />
         </div>
       </div>
     );
